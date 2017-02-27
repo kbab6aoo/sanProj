@@ -1,0 +1,13 @@
+---
+
+# This will create a windows user in hosts "win"
+# In order for this to work a user with administrative priviledges must be used
+
+- name: Creating a windows user
+  hosts: win
+
+  var_files:
+    - secret.yml
+
+  roles:
+    - CreateWinUsr
