@@ -1,0 +1,33 @@
+---
+
+- name: Creating "{{ my_image }}"
+
+  os_server:
+    state: "{{ state | default ('present') }}"
+    cloud: "{{ my_cloud }}"
+    region_name: "{{ my_region }}"
+    auto_ip: false
+    availability zone: "{{ my_region }}-{{ my_az }}"
+    flavor: "{{ my_flavour }}"
+    image: "{{ my_image }}"
+    nics: "net-id={{ my_netid1 }},net-id={{ my_netid2}}"
+    timeout: 1000
+    userdata: "{{ win_userdata }}"
+    wait: yes
+    key_name: "{{ my_keyname }}"
+    boot_from_volume: true
+  register: instance
+
+  - name: Waiting for WinRM to answer on hosts
+    local_action:
+      module: wait_for
+      host: "{{ instance.openstack.private_v4 }}"
+      port: 5986
+      delay: 60
+      timeout: 1000
+      state: started
+
+  - name: Adding new host to "{{ my_groups }}"
+    add_host:
+      name: "{{ instance.openstack.private_v4 }}"
+      groups: "{{ my_groups }}"
