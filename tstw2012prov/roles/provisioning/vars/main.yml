@@ -12,4 +12,7 @@ my_keyname: fran
 my_netid1: xxxxx-xxxx-xxx-xxxx-xxxxx
 my_netid2: xxxxx-xxxx-xxx-xxxx-xxxxx
 
- 
+$Username: myTstUsr
+$Password: "{{win_intial_password}}"
+$grpDescription: 'Ansible created User'
+$Fullname: myTstUsr
