@@ -1,0 +1,14 @@
+---
+
+# This role will create a new windows user on the instance 
+# In order for this to work a user with administrative privileges is required
+
+- name: Creating a new windows user
+  win_user:
+    name: myTestUsr
+    password: "{{win_initial_password}}"
+    description: 'Ansible created administrative user'
+    password_never_expires: yes   # requires version >=1.9
+    user_cannot_change_password:  # requires version >=1.9
+    groups:
+      - Administrators
