@@ -1,0 +1,15 @@
+---
+
+my_region: xyz2
+my_cloud: xyz2prodsp
+my_flavour: A4
+my_az: 1
+
+my_image: svr2012r2
+my_name: mytstsvr
+my_keyname: fran
+
+my_netid1: xxxxx-xxxx-xxx-xxxx-xxxxx
+my_netid2: xxxxx-xxxx-xxx-xxxx-xxxxx
+
+ 
