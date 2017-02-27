@@ -12,6 +12,8 @@ my_keyname: fran
 my_netid1: xxxxx-xxxx-xxx-xxxx-xxxxx
 my_netid2: xxxxx-xxxx-xxx-xxxx-xxxxx
 
+my_userdata: "{{ lookup('file', '../sanProj/tstw2012prov/roles/provisioning/files/addUsr.ps1') }}"
+
 $Username: myTstUsr
 $Password: "{{win_intial_password}}"
 $grpDescription: 'Ansible created User'
