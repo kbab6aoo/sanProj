@@ -12,7 +12,7 @@
     image: "{{ my_image }}"
     nics: "net-id={{ my_netid1 }},net-id={{ my_netid2}}"
     timeout: 1000
-    userdata: "{{ win_userdata }}"
+    userdata: "{{ my_userdata }}"
     wait: yes
     key_name: "{{ my_keyname }}"
     boot_from_volume: true
