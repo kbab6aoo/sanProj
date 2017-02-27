@@ -1,0 +1,24 @@
+---
+
+# This playbook will provision a windows instance in OpenStack
+# and add the host to the group "wins"
+
+- name: Provisioning Windows Instance
+  hosts: localhost
+  connection: local
+  gather_facts: true
+
+  var_files:
+    - secret.yml
+
+  roles:
+    - Provisioning
+
+- name: Configuring the Instance
+  hosts: wins
+
+  var_files:
+    - secret.yml
+
+  roles:
+    - win_CreatefileDir
